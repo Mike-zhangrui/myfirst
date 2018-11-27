@@ -1,6 +1,7 @@
 body {
   background-color:#222D32;
 }
+
 .mt_150 {
   margin-top: 150px;
 }
@@ -10,3 +11,7 @@ body {
   line-height: 40px;
   font-size: 20px;
 }
+/* #nprogress .bar {
+  
+  background-color: rgba(0,255,0,.5);
+} */
