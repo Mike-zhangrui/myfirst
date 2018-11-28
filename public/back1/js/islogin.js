@@ -1,16 +1,16 @@
-$.ajax({
-  type: "get",
-  url: "/employee/checkRootLogin",
-  dataType: "json",
-  success: function( info ) {
-    console.log( info );
-    if ( info.error === 400 ) {
-      // 未登录, 拦截到登录页
-      location.href = "login.html";
+// 一旦进入页面就发送ajax请求验证用户是否登陆过,如果没有登录拦截到登录页面
+$(function(){
+  $.ajax({
+    type:"get",
+    url:"/employee/checkRootLogin",
+    dataType:"json",
+    success:function(info){
+       if(info.error===400){
+         location.href = "login.html"
+       }
+       if(info.success){
+         console.log('该用户已经登陆过')
+       }
     }
-
-    if ( info.success ) {
-      console.log("当前用户已登录");
-    }
-  }
+  })
 })

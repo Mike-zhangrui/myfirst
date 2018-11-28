@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>乐淘电商</title>
+  <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+  <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+
+
+<!-- 乐淘侧边栏 -->
+<div class="lt_aside">
+  <div class="brand">
+    <a href="#">黑马31期牛逼</a>
+  </div>
+  <div class="user">
+    <img src="./images/02.jpg" alt="">
+    <p>超级管理员</p>
+  </div>
+  <div class="nav">
+    <ul>
+      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+      <li>
+        <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+        <!-- 用于切换展示的二级列表 -->
+        <div class="child" style="display: block">
+          <a href="first.html">一级分类</a>
+          <a class="active" href="second.html">二级分类</a>
+        </div>
+      </li>
+      <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- 右侧主体部分 -->
+<div class="lt_main">
+
+  <!-- 上面的 lt_topbar -->
+  <div class="lt_topbar">
+    <a href="#" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+    <a href="#" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+  </div>
+
+  <!-- 底下一个流式布局容器 container-fluid  特点: 默认宽度100%, 有左右的15px padding -->
+  <div class="container-fluid">
+
+    <!-- 面包屑导航 -->
+    <ol class="breadcrumb mt_20" >
+      <li><a href="index.html">管理系统</a></li>
+      <li class="active">首页</li>
+    </ol>
+    <!-- data-toggle="modal"         标记用于切换模态框
+         data-target="#logoutModal"  通过id关联具体显示哪一个模态框
+    ->
+    <!--<button data-toggle="modal" data-target="#logoutModal">我是按钮</button>-->
+
+  </div>
+
+</div>
+
+
+<!-- 退出模态框 -->
+<!--
+     1. 模态框大小
+        大 modal-lg
+        中 默认
+        小 modal-sm
+     2. 给标签添加 data-dismiss="modal"  关闭模态框
+-->
+
+<!-- 外层是遮罩层 -->
+<div class="modal fade" id="logoutModal" tabindex="-1">
+  <!-- 模态框 -->
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+      </div>
+      <div class="modal-body">
+        <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./lib/nprogress/nprogress.js"></script>
+<script src="./js/common.js"></script>
+<script src="./js/isLogin.js"></script>
+
+</body>
+</html>

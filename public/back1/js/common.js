@@ -25,9 +25,36 @@
   })
   
   $( document ).ajaxStop(function() {
-    模拟网络延迟
+    // 模拟网络延迟
     setTimeout(function() {
       // 关闭进度条
       NProgress.done();
     }, 500)
   })
+  $(function(){
+    $('.category').click(function(){
+      // 二级菜单切换
+      $(this).next().stop().slideToggle()
+    })
+    $('.icon_left').click(function(){
+      $('.lt_aside').toggleClass('hidemenu')
+      $('.lt_topbar').toggleClass('hidemenu')
+      $('.lt_main').toggleClass('hidemenu')
+    })
+    $('.icon_right').click(function(){
+      $('#logoutModal').modal("show")
+    })
+    $('#logoutBtn').click(function(){
+      $.ajax({
+        type:"get",
+        url:"/employee/employeeLogout",
+        dataType:"json",
+        success:function(info){
+            if(info.success){
+              location.href ="login.html"
+            }
+        }
+
+      })
+    })
+})

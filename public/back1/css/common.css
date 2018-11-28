@@ -1,9 +1,22 @@
 body {
   background-color:#222D32;
 }
-
+a:link,a:visited,a:hover,a:active{
+  text-decoration: none;
+}
+ul {
+  padding:0;
+  margin: 0;
+  list-style: none;
+}
 .mt_150 {
   margin-top: 150px;
+}
+.mt_20 {
+  margin-top: 20px;
+}
+.red {
+  color: #A94442;
 }
 .panel-title {
   height:40px;
@@ -15,3 +28,107 @@ body {
   
   background-color: rgba(0,255,0,.5);
 } */
+.lt_aside {
+  height: 100%;
+  width: 180px;
+  background-color: #222D32;
+  position: fixed;
+  left: 0;
+  top:0;
+  z-index: 999;
+  transition:1s;
+}
+.lt_aside.hidemenu {
+  left:-180px;
+}
+.lt_aside .brand {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 25px;
+  background-color:#367FA9;
+}
+.lt_aside .brand a {
+  color: #fff;
+}
+.lt_aside .user {
+  padding-top:30px;
+}
+.lt_aside .user img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.lt_aside .user p {
+  color: #fff;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.lt_aside .nav {
+  margin-top: 30px;
+}
+.lt_aside .nav li a {
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  color: #fff;
+  padding-left:40px;
+  border-left: 3px solid transparent;
+}
+.lt_aside .nav li a.active {
+  background-color: #1D1F21;
+  border-left: 3px solid #069;
+}
+.lt_aside .nav li a i {
+  margin-right:5px;
+}
+.lt_aside .nav li .child {
+  display: none;
+}
+.lt_aside .nav li .child a {
+    padding-left:60px;
+}
+
+.lt_topbar {
+  position: fixed;
+  background-color: #3C8DBC;
+  top:0;
+  left: 0;
+  width: 100%;
+  height:50px;
+  padding-left:180px;
+  z-index: 998;
+  transition:1s;
+}
+.lt_topbar.hidemenu {
+  padding-left:0;
+}
+.lt_topbar .icon_left,.lt_topbar .icon_right {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  color:#fff;
+
+}
+.lt_main {
+  padding-left:180px;
+  padding-top:50px;
+  height: 2000px;
+  background-color: #fff;
+  transition:1s;
+}
+.lt_main.hidemenu {
+  padding-left:0px;
+}
+.echarts_left,
+.echarts_right {
+  width: 48%;
+  height: 400px;
+}
