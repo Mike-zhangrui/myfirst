@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <title>乐淘电商</title>
@@ -8,64 +9,143 @@
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
   <link rel="stylesheet" href="./css/common.css">
 </head>
+
 <body>
 
 
-<!-- 乐淘侧边栏 -->
-<div class="lt_aside">
-  <div class="brand">
-    <a href="#">黑马31期牛逼</a>
+  <!-- 乐淘侧边栏 -->
+  <div class="lt_aside">
+    <div class="brand">
+      <a href="#">黑马31期牛逼</a>
+    </div>
+    <div class="user">
+      <img src="./images/02.jpg" alt="">
+      <p>超级管理员</p>
+    </div>
+    <div class="nav">
+      <ul>
+        <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+        <li>
+          <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+          <!-- 用于切换展示的二级列表 -->
+          <div class="child" style="display: block">
+            <a href="first.html">一级分类</a>
+            <a class="active" href="second.html">二级分类</a>
+          </div>
+        </li>
+        <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+      </ul>
+    </div>
   </div>
-  <div class="user">
-    <img src="./images/02.jpg" alt="">
-    <p>超级管理员</p>
-  </div>
-  <div class="nav">
-    <ul>
-      <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
-      <li>
-        <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-        <!-- 用于切换展示的二级列表 -->
-        <div class="child" style="display: block">
-          <a href="first.html">一级分类</a>
-          <a class="active" href="second.html">二级分类</a>
+
+
+  <!-- 右侧主体部分 -->
+  <div class="lt_main">
+
+    <!-- 上面的 lt_topbar -->
+    <div class="lt_topbar">
+      <a href="#" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+      <a href="#" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+    </div>
+
+    <!-- 底下一个流式布局容器 container-fluid  特点: 默认宽度100%, 有左右的15px padding -->
+    <div class="container-fluid">
+
+      <!-- 面包屑导航 -->
+      <ol class="breadcrumb mt_20">
+        <li><a href="index.html">管理系统</a></li>
+        <li class="active">分类管理</li>
+        <li class="active">二级分类</li>
+      </ol>
+
+      <div class="lt_content">
+
+        <!-- 添加按钮 -->
+        <button class="btn btn-default" id="addBtn">添加分类</button>
+
+        <!-- 表格 -->
+        <table class="table table-bordered table-hover mt_20">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 挖个坑 -->
+          </tbody>
+        </table>
+
+        <div class="pull-right">
+          <!-- 准备一个分页容器 3.x 要求 ul -->
+          <ul id="paginator"></ul>
         </div>
-      </li>
-      <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
-    </ul>
-  </div>
-</div>
 
-
-<!-- 右侧主体部分 -->
-<div class="lt_main">
-
-  <!-- 上面的 lt_topbar -->
-  <div class="lt_topbar">
-    <a href="#" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
-    <a href="#" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
-  </div>
-
-  <!-- 底下一个流式布局容器 container-fluid  特点: 默认宽度100%, 有左右的15px padding -->
-  <div class="container-fluid">
-
-    <!-- 面包屑导航 -->
-    <ol class="breadcrumb mt_20" >
-      <li><a href="index.html">管理系统</a></li>
-      <li class="active">首页</li>
-    </ol>
-    <!-- data-toggle="modal"         标记用于切换模态框
+      </div>
+      <!-- data-toggle="modal"         标记用于切换模态框
          data-target="#logoutModal"  通过id关联具体显示哪一个模态框
     ->
     <!--<button data-toggle="modal" data-target="#logoutModal">我是按钮</button>-->
 
+    </div>
+
   </div>
+  <!-- 准备添加模态框 -->
+  <div class="modal fade" id="addModal" tabindex="-1">
+    <!-- 模态框 -->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <form id="form">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <!-- 下拉框 -->
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  <span id="dropdownText">请选择一级分类</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
 
-</div>
-
-
-<!-- 退出模态框 -->
-<!--
+                </ul>
+              </div>
+              <!-- 准备一个隐藏域 -->
+              <input type="hidden" name="categoryId">
+              <!-- 火热的品牌 hot  1火热  0凉凉 -->
+              <input type="hidden" name="hot" value="1">
+            </div>
+            <div class="form-group">
+              <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+            </div>
+            <div class="form-group">
+              <label for="fileupload" class="btn btn-default">上传图片</label>
+              <!--
+              指定name, 用于后台接收图片对象
+              指定data-url, 配置后台图片上传的接口地址
+            -->
+              <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+            </div>
+            <div class="form-group" id="img-box">
+              <img src="./images/none.png" style="width: 100px;">
+              <!-- 添加隐藏域,专门用于提交图片的地址 -->
+              <input type="hidden" name="brandLogo">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="submit" class="btn btn-primary addBtn">添加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- 退出模态框 -->
+  <!--
      1. 模态框大小
         大 modal-lg
         中 默认
@@ -73,35 +153,55 @@
      2. 给标签添加 data-dismiss="modal"  关闭模态框
 -->
 
-<!-- 外层是遮罩层 -->
-<div class="modal fade" id="logoutModal" tabindex="-1">
-  <!-- 模态框 -->
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
-      </div>
-      <div class="modal-body">
-        <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+  <!-- 外层是遮罩层 -->
+  <div class="modal fade" id="logoutModal" tabindex="-1">
+    <!-- 模态框 -->
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <script type="text/html" id="second">
+    {{each rows v i }}
+  <tr>
+    <td>{{i+1+(page-1)*size}}</td>
+    <td>{{v.categoryName}}</td>
+    <td>{{v.brandName}}</td>
+    <td>
+      <img style="height:50px" src="{{v.brandLogo }}" alt="">
+    </td>
+  </tr>
+  {{/each}}
+</script>
+  <script type="text/html" id="dropdownTpl">
+    {{each rows v i}}
+  <li><a data-id="{{ v.id }}" href="#">{{ v.categoryName }}</a></li>
+  {{/each}}
+</script>
 
-
-
-<script src="./lib/jquery/jquery.min.js"></script>
-<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
-<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
-<script src="./lib/nprogress/nprogress.js"></script>
-<script src="./js/common.js"></script>
-<script src="./js/isLogin.js"></script>
-
+  <script src="./lib/jquery/jquery.min.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+  <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+  <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+  <script src="./lib/nprogress/nprogress.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/isLogin.js"></script>
+  <script src="./js/second.js"></script>
 </body>
+
 </html>
