@@ -61,11 +61,13 @@ $(function () {
   $('#fileupload').fileupload({
     dataType:"json",
     done:function(e,data){
-      console.log(data)
+      // console.log(data)
       var picUrl = data.result.picAddr
       $('#img-box img').attr('src',picUrl)
       //更新隐藏域的状态
       $('#form').data("bootstrapValidator").updateStatus("brandLogo", "VALID")
+      $('[name="brandLogo"]').val(picUrl)
+      
     }
   })
   //添加表单验证功能
@@ -102,18 +104,25 @@ $(function () {
       }
     }
   })
+  //添加表单校验成功事件
   $('#form').on('success.form.bv',function(e){
     e.preventDefault()
     $.ajax({
       type:"post",
-      url:"/category/addSecondCategoryPic",
+      url:"/category/addSecondCategory",
       data:$('#form').serialize(),
       dataType:"json",
       success:function(info){
+        console.log(info)
         //模态框隐藏
         $('#addModal').modal("hide") 
-        currentPage = 1;
+        $('#form').data("bootstrapValidator").resetForm(true)
+        currentPage = 1
         render()
+       //重置下拉框文本
+       $('#dropdownText').text("请选择1级分类")
+      //重置图片
+      $('#img-box img').attr("src","images/none.png")
       }
     })
   })

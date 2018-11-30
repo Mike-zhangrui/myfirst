@@ -138,7 +138,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-primary addBtn">添加</button>
+            <button type="submit" class="btn btn-primary ">添加</button>
           </div>
         </form>
       </div>
@@ -180,7 +180,7 @@
     <td>{{v.categoryName}}</td>
     <td>{{v.brandName}}</td>
     <td>
-      <img style="height:50px" src="{{v.brandLogo }}" alt="">
+      <img style="height:50px" src="{{v.brandLogo ? v.brandLogo : 'images/none.png' }}" alt="">
     </td>
   </tr>
   {{/each}}
