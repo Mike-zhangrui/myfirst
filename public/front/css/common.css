@@ -7,16 +7,21 @@ ul,ol {
   margin: 0;
   list-style: none;
 }
+img {
+  display: block;
+  width: 100%;
+}
 .lt_container {
   width: 100%;
   height: 100%;
   max-width: 640px;
   min-width: 320px;
   margin: 0 auto;
-  background-color: pink;
+  /* background-color: pink; */
   overflow: hidden;
   position: relative;
   padding-top:45px;
+  padding-bottom:55px;
 }
 .lt_header {
   width: 100%;
@@ -78,6 +83,32 @@ ul,ol {
 .lt_main {
   width: 100%;
   height:100%;
-  background-color: skyblue;
+  /* background-color: skyblue; */
   position: relative;
+  background-color: #fff;
+}
+/* 公共的商品部分 */
+.lt_product {
+  padding:10px;
+  text-align: center;
+}
+.lt_product li {
+  width: 48%;
+  float:left;
+  border: 1px solid #ccc;
+  border-radius:5px;
+  margin-bottom:20px;
+}
+.lt_product li a {
+  display: block;
+  padding:10px;
+}
+.lt_product li:nth-child(odd) {
+  margin-right: 4%;
+}
+.lt_product li a .price {
+  color:red;
+}
+.lt_product li a .oldPrice {
+  text-decoration: line-through;
 }
