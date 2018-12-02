@@ -76,6 +76,12 @@ img {
    text-align: center;
    padding-top: 8px;
 }
+.lt_footer li a.current {
+  color: orange;
+} 
+.lt_footer li a.current p{
+  color: orange;
+}
 .lt_footer li a p {
   color: #fff;
   margin: 0;
