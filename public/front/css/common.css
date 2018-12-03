@@ -118,3 +118,22 @@ img {
 .lt_product li a .oldPrice {
   text-decoration: line-through;
 }
+.lt_search {
+  padding:10px;
+  position: relative;
+}
+.lt_search .search_input {
+ height:34px;
+ line-height: 34px; 
+ font-size: 12px;
+ border: 1px solid #007AFF;
+ /* 去掉默认margin */
+ margin:0;
+ border-radius:5px;
+}
+.lt_search .search_btn {
+  position: absolute;
+  border-radius:0 5px 5px 0;
+  top:10px;
+  right:10px;
+}
